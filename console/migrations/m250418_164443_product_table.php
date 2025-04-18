@@ -2,14 +2,14 @@
 
 use yii\db\Migration;
 
-class m250418_163132_company_overview_table extends Migration
+class m250418_164443_product_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('company_overview', [
+        $this->createTable('product', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'slug' => $this->string()->notNull(),
@@ -30,7 +30,7 @@ class m250418_163132_company_overview_table extends Migration
      */
     public function safeDown()
     {
-        echo "m250418_163132_company_overview_table cannot be reverted.\n";
+        echo "m250418_164443_product_table cannot be reverted.\n";
 
         return false;
     }
@@ -44,7 +44,7 @@ class m250418_163132_company_overview_table extends Migration
 
     public function down()
     {
-        echo "m250418_163132_company_overview_table cannot be reverted.\n";
+        echo "m250418_164443_product_table cannot be reverted.\n";
 
         return false;
     }
