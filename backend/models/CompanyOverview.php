@@ -69,5 +69,4 @@ class CompanyOverview extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
         ];
     }
-
 }

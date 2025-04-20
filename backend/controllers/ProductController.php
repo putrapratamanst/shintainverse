@@ -70,7 +70,12 @@ class ProductController extends Controller
         $model = new Product();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post())) {
+                $model->slug = \yii\helpers\Inflector::slug($model->title);
+                $model->created_at = date('Y-m-d H:i:s');
+                $model->is_active = 1;
+                $model->is_deleted = 0;
+                $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {

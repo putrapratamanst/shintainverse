@@ -2,16 +2,16 @@
 
 namespace backend\controllers;
 
-use backend\models\Service;
-use backend\models\ServiceSearch;
+use backend\models\Staff;
+use backend\models\StaffSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ServiceController implements the CRUD actions for Service model.
+ * StaffController implements the CRUD actions for Staff model.
  */
-class ServiceController extends Controller
+class StaffController extends Controller
 {
     /**
      * @inheritDoc
@@ -32,13 +32,13 @@ class ServiceController extends Controller
     }
 
     /**
-     * Lists all Service models.
+     * Lists all Staff models.
      *
      * @return string
      */
     public function actionIndex()
     {
-        $searchModel = new ServiceSearch();
+        $searchModel = new StaffSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +48,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Displays a single Service model.
+     * Displays a single Staff model.
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,13 +61,13 @@ class ServiceController extends Controller
     }
 
     /**
-     * Creates a new Service model.
+     * Creates a new Staff model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Service();
+        $model = new Staff();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
@@ -88,7 +88,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Updates an existing Service model.
+     * Updates an existing Staff model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|\yii\web\Response
@@ -108,7 +108,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Deletes an existing Service model.
+     * Deletes an existing Staff model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return \yii\web\Response
@@ -122,15 +122,15 @@ class ServiceController extends Controller
     }
 
     /**
-     * Finds the Service model based on its primary key value.
+     * Finds the Staff model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Service the loaded model
+     * @return Staff the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Service::findOne(['id' => $id])) !== null) {
+        if (($model = Staff::findOne(['id' => $id])) !== null) {
             return $model;
         }
 
