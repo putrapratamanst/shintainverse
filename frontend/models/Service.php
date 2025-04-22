@@ -1,11 +1,11 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 use Yii;
 
 /**
- * This is the model class for table "product".
+ * This is the model class for table "service".
  *
  * @property int $id
  * @property string $title
@@ -20,7 +20,7 @@ use Yii;
  * @property string|null $meta_image
  * @property string|null $created_at
  */
-class Product extends \yii\db\ActiveRecord
+class Service extends \yii\db\ActiveRecord
 {
 
 
@@ -29,7 +29,7 @@ class Product extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'product';
+        return 'service';
     }
 
     /**
@@ -42,7 +42,7 @@ class Product extends \yii\db\ActiveRecord
             [['is_active'], 'default', 'value' => 1],
             [['is_deleted'], 'default', 'value' => 0],
             [['title', 'slug', 'description'], 'required'],
-            [['description', 'meta_description', 'meta_keywords'], 'string'],
+            [['description', 'meta_description', 'meta_keywords', 'summary'], 'string'],
             [['is_active', 'is_deleted'], 'integer'],
             [['created_at'], 'safe'],
             [['title', 'slug', 'image', 'meta_title', 'meta_image'], 'string', 'max' => 255],
@@ -67,7 +67,24 @@ class Product extends \yii\db\ActiveRecord
             'meta_keywords' => 'Meta Keywords',
             'meta_image' => 'Meta Image',
             'created_at' => 'Created At',
+            'summary' => 'Summary',
         ];
     }
 
+   
+    public function getActiveServicess($limit = null)
+    {
+        if ($limit) {
+            return $this->find()->where(['is_active' => 1, 'is_deleted' => 0])->limit($limit)->all();
+        }
+        return $this->find()->where(['is_active' => 1, 'is_deleted' => 0])->all();
+    }
+    public function getServiceById($id)
+    {
+        return $this->find()->where(['id' => $id, 'is_deleted' => 0])->one();
+    }
+    public function getServiceBySlug($slug)
+    {
+        return $this->find()->where(['slug' => $slug, 'is_deleted' => 0])->one();
+    }
 }

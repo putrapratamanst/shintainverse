@@ -18,7 +18,7 @@ class ServiceSearch extends Service
     {
         return [
             [['id', 'is_active', 'is_deleted'], 'integer'],
-            [['title', 'slug', 'description', 'image', 'meta_title', 'meta_description', 'meta_keywords', 'meta_image', 'created_at'], 'safe'],
+            [['title', 'slug', 'description', 'image', 'meta_title', 'meta_description', 'meta_keywords', 'meta_image', 'created_at', 'summary'], 'safe'],
         ];
     }
 
@@ -72,7 +72,8 @@ class ServiceSearch extends Service
             ->andFilterWhere(['like', 'meta_title', $this->meta_title])
             ->andFilterWhere(['like', 'meta_description', $this->meta_description])
             ->andFilterWhere(['like', 'meta_keywords', $this->meta_keywords])
-            ->andFilterWhere(['like', 'meta_image', $this->meta_image]);
+            ->andFilterWhere(['like', 'meta_image', $this->meta_image])
+            ->andFilterWhere(['like', 'summary', $this->summary]);
 
         return $dataProvider;
     }

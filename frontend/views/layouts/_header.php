@@ -1,9 +1,15 @@
+<?php
+
+use yii\helpers\Html;
+?>
 <header id="header" style="padding-bottom: 0px;">
-    <?= $this->render('_topbar')?>
+    <?= $this->render('_topbar') ?>
     <div class="header_top clearfix affix">
         <div class="container">
             <div class="logo media-left media-middle">
-                <a href="https://shintainserve.com/"><img src="http://shintainserve.com/wp-content/uploads/2018/07/logo.png" style="width: 300px; height: px;" alt="Shinta Inserve"></a>
+                <a href="<?= Yii::$app->homeUrl ?>">
+                    <?= Html::img('@web/images/logo.png', ['alt' => 'Shinta Inserve', 'width' => '200']) ?>
+                </a>
             </div>
             <div class="top_nav media-body media-middle affix">
                 <div class="top_nav_wrapper clearfix">
@@ -34,7 +40,9 @@
     <div class="mobile_header">
         <div class="logo_wrapper clearfix">
             <div class="logo">
-                <a href="https://shintainserve.com/"><img src="http://shintainserve.com/wp-content/uploads/2018/07/logo.png" alt="Shinta Inserve"></a>
+                <a href="<?= Yii::$app->homeUrl ?>">
+                    <?= Html::img('@web/images/logo.png', ['alt' => 'Shinta Inserve', 'width' => '200']) ?>
+                </a>
             </div>
             <div id="menu_toggle">
                 <button></button>

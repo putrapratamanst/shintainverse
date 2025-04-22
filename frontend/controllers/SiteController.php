@@ -15,12 +15,21 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Service;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+    protected $product;
+
+    public function __construct($id, $module, $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->product = new Service();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -75,7 +84,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $services = $this->product->getActiveServicess(6);
+        $this->view->params['services'] = $services;
+        return $this->render('index', [
+            'services' => $services,
+        ]);
     }
 
     /**

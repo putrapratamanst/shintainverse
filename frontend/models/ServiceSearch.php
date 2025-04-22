@@ -1,15 +1,15 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Product;
+use frontend\models\Service;
 
 /**
- * ProductSearch represents the model behind the search form of `backend\models\Product`.
+ * ServiceSearch represents the model behind the search form of `frontend\models\Service`.
  */
-class ProductSearch extends Product
+class ServiceSearch extends Service
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'is_active', 'is_deleted'], 'integer'],
-            [['title', 'slug', 'description', 'image', 'meta_title', 'meta_description', 'meta_keywords', 'meta_image', 'created_at'], 'safe'],
+            [['title', 'slug', 'description', 'image', 'meta_title', 'meta_description', 'meta_keywords', 'meta_image', 'created_at', 'summary'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ProductSearch extends Product
      */
     public function search($params, $formName = null)
     {
-        $query = Product::find();
+        $query = Service::find();
 
         // add conditions that should always apply here
 
@@ -72,7 +72,8 @@ class ProductSearch extends Product
             ->andFilterWhere(['like', 'meta_title', $this->meta_title])
             ->andFilterWhere(['like', 'meta_description', $this->meta_description])
             ->andFilterWhere(['like', 'meta_keywords', $this->meta_keywords])
-            ->andFilterWhere(['like', 'meta_image', $this->meta_image]);
+            ->andFilterWhere(['like', 'meta_image', $this->meta_image])
+            ->andFilterWhere(['like', 'summary', $this->summary]);
 
         return $dataProvider;
     }
