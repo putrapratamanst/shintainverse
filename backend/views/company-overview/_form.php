@@ -31,10 +31,3 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
-<script>
-        $(function() {
-            // Summernote
-            $('#summernote').summernote()
-
-        })
-    </script>

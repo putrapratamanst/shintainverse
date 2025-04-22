@@ -9,8 +9,8 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\web\JqueryAsset;
 
-AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -110,6 +110,13 @@ AppAsset::register($this);
     <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
    
     <?php $this->endBody() ?>
+    <script>
+        $(function() {
+            // Summernote
+            $('#summernote').summernote()
+
+        })
+    </script>
 </body>
 
 </html>
