@@ -5,17 +5,16 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var backend\models\CompanyOverview $model */
 
-$this->title = 'Update Company Overview: ' . $model->title;
+$this->title = 'Update : ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Company Overviews', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="company-overview-update">
+<div class="card">
+    <div class="card-body">
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+    </div>
 </div>

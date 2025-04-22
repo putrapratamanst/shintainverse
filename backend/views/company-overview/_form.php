@@ -14,17 +14,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
+    <?= $form->field($model, 'description')->textarea(['rows' => 6, 'id' => 'summernote']) ?>
+    <div class="card-body">
+        <textarea id="summernote">
+                Place <em>some</em> <u>text</u> <strong>here</strong>
+              </textarea>
+    </div>
     <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'meta_description')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'meta_keywords')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'meta_image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'is_active')->checkbox() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
@@ -33,3 +31,10 @@ use yii\widgets\ActiveForm;
     <?php ActiveForm::end(); ?>
 
 </div>
+<script>
+        $(function() {
+            // Summernote
+            $('#summernote').summernote()
+
+        })
+    </script>

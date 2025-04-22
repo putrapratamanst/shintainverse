@@ -28,15 +28,17 @@
                                         <div class="vc_column-inner ">
                                             <div class="wpb_wrapper">
                                                 <div class="vc_custom_heading vc_custom_1547110749149 text_align_left">
-                                                    <div style="font-size: 16px;color: #222222;line-height: 22px;text-align: left;font-family:Poppins;font-weight:600;font-style:normal">Coverage of Property Insurance</div>
+                                                    <div style="font-size: 16px;color: #222222;line-height: 22px;text-align: left;font-family:Poppins;font-weight:600;font-style:normal">Coverage of <?= $model->title ?></div>
                                                 </div>
                                                 <div class="wpb_text_column wpb_content_element ">
                                                     <div class="wpb_wrapper">
                                                         <ul style="font-size: 13px; line-height: 18px;">
-                                                            <li>Standard protection against Fire and Perils (also known as Fire Only policy). Standard policy covers damage caused by short circuit, spontaneous combustion, explosion, lightning, aircraft damage, and smoke.</li>
-                                                            <li>All Risk Protection. Comprehensive policy that offers coverage and protection from all risks or perils, unless the risks are excluded specifically in the policy. Extension of policy covers includes earthquake, strike, civil commotion, act of terrorism, and sabotage.</li>
+                                                            <?php 
+                                                            if ($model->coverage) {
+                                                            foreach ($model->coverage as $coverage){ ?>
+                                                                <li><?= $coverage ?></li>
+                                                             <?php }} ?>
                                                         </ul>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,8 +54,8 @@
 
                                 <div class="wpb_text_column wpb_content_element  vc_custom_1547110853784">
                                     <div class="wpb_wrapper">
-                                        <p><strong>Types of property that can be insured</strong></p>
-                                        <p>Residential home, shop lot, office building, flats, apartment, cottage, villa, hotel, hospital, restaurant, café, store, kost, dll.</p>
+                                        <p><strong>Types of <?= $model->title ?> that can be insured</strong></p>
+                                        <p><?= $model->types ?></p>
 
                                     </div>
                                 </div>

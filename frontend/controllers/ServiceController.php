@@ -55,8 +55,12 @@ class ServiceController extends Controller
      */
     public function actionView($slug)
     {
+        $model = $this->findModelBySlug($slug);
+        if ($model->coverage) {
+            $model->coverage = json_decode($model->coverage);
+        }
         return $this->render('view', [
-            'model' => $this->findModelBySlug($slug),
+            'model' =>$model,
         ]);
     }
     

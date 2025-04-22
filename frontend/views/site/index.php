@@ -297,9 +297,9 @@ counter.start();
                                                         <img class="" src="<?= $service->image ?>" width="350" height="184" alt="<?= $service->title ?>" title="<?= $service->title ?>"> </a>
                                                 </div>
                                                 <div class="content">
-                                                    <h5><a href="<?= Url::to(['product/view', 'slug' => $service->slug]) ?>"><?= $service->title ?></a></h5>
+                                                    <h5><a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>"><?= $service->title ?></a></h5>
                                                     <p><?= $service->summary ?></p>
-                                                    <a class="read_more" href="<?= Url::to(['product/view', 'id' => $service->id]) ?>">
+                                                    <a class="read_more" href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>">
                                                         <span>read more</span>
                                                         <i class=" fa fa-chevron-right stm_icon"></i>
                                                     </a>
