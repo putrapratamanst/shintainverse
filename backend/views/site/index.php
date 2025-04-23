@@ -6,6 +6,11 @@ $this->title = 'Home - Admin';
 ?>
 
 
+<!-- Preloader -->
+<div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../../images/logo.png" alt="ShintaInverse" height="50" width="250">
+</div>
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">

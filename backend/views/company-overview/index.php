@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <div class="card-body">
         <p>
-            <?= Html::a('Create', ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Create Company Overview', ['create'], ['class' => 'btn btn-success']) ?>
         </p>
         <?php Pjax::begin([
             'id' => 'pjax-grid-view', // Tentukan ID untuk PJAX
