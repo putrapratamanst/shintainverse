@@ -10,6 +10,15 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Company Overviews', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
+$css = "company-overview.css";
+if ($model->slug) {
+    $css = $model->slug . '.css';
+}
+$this->registerCssFile('@web/css/'. $css, [
+    'depends' => [\yii\web\JqueryAsset::class],
+]);
+
 ?>
 <div class="card">
     <div class="card-body">
@@ -27,10 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
+                // 'id',
                 'title',
-                'slug',
-                'description:ntext',
+                // 'slug',
+                [
+                    'attribute' => 'description',
+                    'format' => 'raw',
+                    'value' => '<div class="preview-content">' . $model->description . '</div>',
+
+                ],
                 'image',
                 // 'is_active',
                 // 'is_deleted',

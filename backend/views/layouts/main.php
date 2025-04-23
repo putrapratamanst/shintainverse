@@ -43,8 +43,6 @@ use yii\web\JqueryAsset;
     <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
-    <!-- summernote -->
-    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
     <?php $this->head() ?>
 </head>
 
@@ -98,19 +96,11 @@ use yii\web\JqueryAsset;
     <script src="../../plugins/daterangepicker/daterangepicker.js"></script>
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- Summernote -->
-    <script src="../../plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="../../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-   
-    <?php $this->endBody() ?>
-    <script>
-        $(function() {
-            // Summernote
-            $('#summernote').summernote()
 
-        })
-    </script>
+    <?php $this->endBody() ?>
+  
 </body>
 
 </html>

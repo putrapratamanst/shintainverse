@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 ?>
 <header id="header" style="padding-bottom: 0px;">
     <?= $this->render('_topbar') ?>
@@ -14,11 +16,11 @@ use yii\helpers\Html;
             <div class="top_nav media-body media-middle affix">
                 <div class="top_nav_wrapper clearfix">
                     <ul id="menu-main-menu" class="main_menu_nav">
-                        <li id="menu-item-1290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1024 current_page_item menu-item-1290"><a href="https://shintainserve.com/" aria-current="page">Home</a></li>
-                        <li id="menu-item-1295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1295"><a href="https://shintainserve.com/company-overview/">About Us</a>
+                        <li id="menu-item-1290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1024 current_page_item menu-item-1290"><a href="<?= Url::to(['site/index']) ?>" aria-current="page">Home</a></li>
+                        <li id="menu-item-1295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1295"><a href="<?= Url::to(['company-overview/index']) ?>">About Us</a>
                             <ul class="sub-menu">
-                                <li id="menu-item-1298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/company-history/">company history</a></li>
-                                <li id="menu-item-1552" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1552 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/what-is-insurance-brokers/">what is insurance brokers ?</a></li>
+                                <li id="menu-item-1298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'company-history']) ?>">company history</a></li>
+                                <li id="menu-item-1552" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1552 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'what-is-insurance-brokers']) ?>">what is insurance brokers ?</a></li>
                                 <li id="menu-item-1333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/our-management/">our Management</a></li>
                             </ul>
                         </li>

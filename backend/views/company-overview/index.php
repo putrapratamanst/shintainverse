@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!-- <div class="card-header">
         <h3 class="card-title"><?= Html::encode($this->title) ?></h3>
     </div> -->
-    
+
     <div class="card-body">
         <p>
             <?= Html::a('Create Company Overview', ['create'], ['class' => 'btn btn-success']) ?>
@@ -44,6 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'class' => ActionColumn::className(),
                     'urlCreator' => function ($action, $model, $key, $index, $column) {
+                        if ($action === 'view') {
+                            return Url::toRoute([$action, 'slug' => $model->slug]);
+                        }
                         return Url::toRoute([$action, 'id' => $model->id]);
                     }
                 ],

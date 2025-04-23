@@ -1,10 +1,9 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
-use backend\models\CompanyOverview;
-use backend\models\CompanyOverviewSearch;
-use Yii;
+use frontend\models\CompanyOverview;
+use frontend\models\CompanyOverviewSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -39,12 +38,9 @@ class CompanyOverviewController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CompanyOverviewSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+        $model = $this->findModelBySlug('company-overview');
+        return $this->render('view', [
+            'model' => $model,
         ]);
     }
 
@@ -54,12 +50,14 @@ class CompanyOverviewController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
+
     public function actionViewById($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
+
 
     public function actionView($slug)
     {
@@ -68,7 +66,6 @@ class CompanyOverviewController extends Controller
             'model' => $model,
         ]);
     }
-
 
     /**
      * Creates a new CompanyOverview model.
@@ -80,13 +77,8 @@ class CompanyOverviewController extends Controller
         $model = new CompanyOverview();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                $model->slug = \yii\helpers\Inflector::slug($model->title);
-                $model->created_at = date('Y-m-d H:i:s');
-                $model->is_active = 1;
-                $model->is_deleted = 0;
-                $model->save();
-                return $this->redirect(['view', 'slug' => $model->slug]);
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -109,7 +101,7 @@ class CompanyOverviewController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'slug' => $model->slug]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -147,7 +139,6 @@ class CompanyOverviewController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-
     protected function findModelBySlug($slug)
     {
         if (($model = CompanyOverview::findOne(['slug' => $slug])) !== null) {
@@ -155,26 +146,5 @@ class CompanyOverviewController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    public function actionUploadImage()
-    {
-        $uploadedFile = \yii\web\UploadedFile::getInstanceByName('upload');
-        $path = Yii::getAlias('@webroot/uploads/') . $uploadedFile->name;
-
-        if ($uploadedFile->saveAs($path)) {
-            $url = \Yii::$app->request->hostInfo . Yii::getAlias('@web/uploads/') . $uploadedFile->name;
-
-            return json_encode([
-                'uploaded' => 1,
-                'fileName' => $uploadedFile->name,
-                'url' => $url,
-            ]);
-        }
-
-        return json_encode([
-            'uploaded' => 0,
-            'error' => ['message' => 'Upload failed.']
-        ]);
     }
 }
