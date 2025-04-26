@@ -7,7 +7,7 @@
             <div class="entry-content">
                 <div class="vc_row wpb_row vc_row-fluid vc_custom_1451991003825">
                     <?= $model->description ?>
-                    <div class="wpb_column vc_column_container vc_col-sm-3 vc_hidden-sm vc_hidden-xs">
+                    <div class="wpb_column vc_column_container vc_col-sm-3">
                         <div class="vc_column-inner vc_custom_1543300659977">
                             <div class="wpb_wrapper">
                                 <div class="stm_sidebar">

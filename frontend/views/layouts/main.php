@@ -29,11 +29,14 @@ AppAsset::register($this);
     } elseif ($controller == 'service' && $action == 'view') {
         $this->registerCssFile('@web/css/service.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'company-overview' && $action == 'view' || $controller == 'company-overview' && $action == 'index') {
-        $this->registerCssFile('@web/css/company-overview.css', ['depends' => [\yii\web\YiiAsset::class]]);
         $slug = Yii::$app->request->get('slug');
         if ($slug) {
             $this->registerCssFile('@web/css/' . $slug . '.css', ['depends' => [\yii\web\YiiAsset::class]]);
+        } else {
+            $this->registerCssFile('@web/css/company-overview.css', ['depends' => [\yii\web\YiiAsset::class]]);
         }
+            
+
     }
 
     $this->registerCssFile('@web/css/stm.css', ['depends' => [\yii\web\YiiAsset::class]]);

@@ -36,17 +36,25 @@ class ServiceController extends Controller
      *
      * @return string
      */
+    // public function actionIndex()
+    // {
+    //     $searchModel = new ServiceSearch();
+    //     $dataProvider = $searchModel->search($this->request->queryParams);
+
+    //     return $this->render('index', [
+    //         'searchModel' => $searchModel,
+    //         'dataProvider' => $dataProvider,
+    //     ]);
+    // }
+
     public function actionIndex()
     {
-        $searchModel = new ServiceSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $services = Service::find()->where(['is_active' => 1])->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'services' => $services,
         ]);
     }
-
     /**
      * Displays a single Service model.
      * @param int $id ID
@@ -60,10 +68,10 @@ class ServiceController extends Controller
             $model->coverage = json_decode($model->coverage);
         }
         return $this->render('view', [
-            'model' =>$model,
+            'model' => $model,
         ]);
     }
-    
+
     public function actionViewById($id)
     {
         return $this->render('view', [

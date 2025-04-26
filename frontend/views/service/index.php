@@ -1,57 +1,48 @@
-<?php
+<div class="container">
 
-use frontend\models\Service;
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
-/** @var yii\web\View $this */
-/** @var frontend\models\ServiceSearch $searchModel */
-/** @var yii\data\ActiveDataProvider $dataProvider */
+    <div class="content-area">
 
-$this->title = 'Services';
-$this->params['breadcrumbs'][] = $this->title;
-?>
-<div class="service-index">
+        <article id="post-558" class="post-558 page type-page status-publish hentry">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+            <div class="entry-content">
+                <div class="vc_row wpb_row vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-12 vc_col-md-12">
+                        <div class="vc_column-inner vc_custom_1548142066969">
+                            <div class="wpb_wrapper">
+                                <div class="vc_custom_heading vc_custom_1543291196800 text_align_left">
+                                    <h2 style="text-align: left;font-family:Poppins;font-weight:700;font-style:normal">Products</h2>
+                                </div>
+                                <div class="stm_services style_1 cols_4">
+                                    <?php
 
-    <p>
-        <?= Html::a('Create Service', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+                                    use yii\helpers\Url;
 
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                                    foreach ($services as $service) { ?>
+                                        <div class="item">
+                                            <div class="item_wr">
+                                                <div class="item_thumbnail">
+                                                    <a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>">
+                                                        <img width="255" height="182" src="<?= $service->image ?>" class="attachment-consulting-image-255x182-croped" alt="" decoding="async" loading="lazy" srcset="<?= $service->image ?> 255w, <?= $service->image ?> 300w" sizes="(max-width: 255px) 100vw, 255px"> </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5><a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>"><?= $service->title ?></a></h5>
+                                                    <p><?= $service->summary ?></p>
+                                                    <a class="read_more" href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>">
+                                                        <span>read more</span>
+                                                        <i class=" fa fa-chevron-right stm_icon"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'slug',
-            'description:ntext',
-            'image',
-            //'is_active',
-            //'is_deleted',
-            //'meta_title',
-            //'meta_description:ntext',
-            //'meta_keywords:ntext',
-            //'meta_image',
-            //'created_at',
-            //'summary:ntext',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Service $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
-        ],
-    ]); ?>
-
-    <?php Pjax::end(); ?>
+        </article>
+    </div>
 
 </div>
