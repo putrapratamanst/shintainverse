@@ -1,13 +1,13 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Staff;
+use frontend\models\Staff;
 
 /**
- * StaffSearch represents the model behind the search form of `backend\models\Staff`.
+ * StaffSearch represents the model behind the search form of `frontend\models\Staff`.
  */
 class StaffSearch extends Staff
 {

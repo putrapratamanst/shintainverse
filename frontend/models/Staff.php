@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\models;
+namespace frontend\models;
 
 use Yii;
 
@@ -11,8 +11,6 @@ use Yii;
  * @property string $name
  * @property string $slug
  * @property string $position
- * @property string $expertise
- * @property string $education
  * @property string $profile
  * @property int|null $is_active
  * @property int|null $is_deleted

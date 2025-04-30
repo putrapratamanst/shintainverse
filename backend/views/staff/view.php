@@ -10,36 +10,41 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Staff', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+
+$css = "staff.css";
+
+$this->registerCssFile('@web/css/'. $css, [
+    'depends' => [\yii\web\JqueryAsset::class],
+]);
+
 ?>
-<div class="staff-view">
+<div class="card">
+    <div class="card-body">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <p>
+            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'name',
+                'slug',
+                'position',
+                [
+                    'attribute' => 'profile',
+                    'format' => 'raw',
+                    'value' => '<div class="preview-content">' . $model->profile . '</div>',
+                ],
             ],
         ]) ?>
-    </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            'slug',
-            'position',
-            'expertise:ntext',
-            'education:ntext',
-            'profile:ntext',
-            'is_active',
-            'is_deleted',
-            'created_at',
-        ],
-    ]) ?>
-
+    </div>
 </div>

@@ -24,5 +24,13 @@ use yii\helpers\Url;
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="<?= Url::to(['staff/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Staffs
+                </p>
+            </a>
+        </li>
     </ul>
 </nav>

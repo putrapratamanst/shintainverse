@@ -43,7 +43,6 @@ $this->registerCssFile('@web/css/'. $css, [
                     'attribute' => 'description',
                     'format' => 'raw',
                     'value' => '<div class="preview-content">' . $model->description . '</div>',
-
                 ],
                 'image',
                 // 'is_active',

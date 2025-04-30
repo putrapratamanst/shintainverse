@@ -6,6 +6,7 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /** @var yii\web\View $this */
 /** @var backend\models\StaffSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -13,42 +14,53 @@ use yii\widgets\Pjax;
 $this->title = 'Staff';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="staff-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="card">
+    <!-- <div class="card-header">
+        <h3 class="card-title"><?= Html::encode($this->title) ?></h3>
+    </div> -->
 
-    <p>
-        <?= Html::a('Create Staff', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="card-body">
+        <p>
+            <?= Html::a('Create Staff', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+        <?php Pjax::begin([
+            'id' => 'pjax-grid-view', // Tentukan ID untuk PJAX
+            'enablePushState' => false, // Nonaktifkan PushState jika tidak ingin URL berubah
+            'linkSelector' => '#pjax-grid-view a', // Pastikan link di dalam GridView juga diproses oleh PJAX
+        ]); ?>
 
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'layout' => '{items}', // Hanya menampilkan bagian grid items
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                'name',
+                'slug',
+                'position',
+                // 'profile',
 
-            'id',
-            'name',
-            'slug',
-            'position',
-            'expertise:ntext',
-            //'education:ntext',
-            //'profile:ntext',
-            //'is_active',
-            //'is_deleted',
-            //'created_at',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Staff $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                // Action column for edit, delete, etc.
+                [
+                    'class' => ActionColumn::className(),
+                    'urlCreator' => function ($action, $model, $key, $index, $column) {
+                        if ($action === 'view') {
+                            return Url::toRoute([$action, 'slug' => $model->slug]);
+                        }
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                    }
+                ],
             ],
-        ],
-    ]); ?>
+        ]); ?>
 
-    <?php Pjax::end(); ?>
-
+        <?php Pjax::end(); ?>
+    </div>
+    <div class="card-footer clearfix">
+        <?= \yii\widgets\LinkPager::widget([
+            'pagination' => $dataProvider->pagination,
+            'options' => ['class' => 'pagination pagination-sm m-0 float-right'],
+        ]) ?>
+    </div>
 </div>

@@ -21,7 +21,7 @@ use yii\helpers\Url;
                             <ul class="sub-menu">
                                 <li id="menu-item-1298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'company-history']) ?>">company history</a></li>
                                 <li id="menu-item-1552" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1552 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'what-is-insurance-brokers']) ?>">what is insurance brokers ?</a></li>
-                                <li id="menu-item-1333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/our-management/">our Management</a></li>
+                                <li id="menu-item-1333" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['staff/index']) ?>">our Management</a></li>
                             </ul>
                         </li>
                         <li id="menu-item-2061" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2061"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-approach']) ?>">Partnership</a>
@@ -53,18 +53,18 @@ use yii\helpers\Url;
         <div class="header_info">
             <div class="top_nav_mobile">
                 <ul id="menu-main-menu-1" class="main_menu_nav">
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1024 current_page_item menu-item-1290"><a href="https://shintainserve.com/" aria-current="page">Home</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1295"><a href="https://shintainserve.com/company-overview/">About Us</a><span class="arrow"><i></i></span>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1024 current_page_item menu-item-1290"><a href="<?= Url::to(['site/index']) ?>" aria-current="page">Home</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1295"><a href="<?= Url::to(['company-overview/index']) ?>">About Us</a><span class="arrow"><i></i></span>
                         <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/company-history/">company history</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1552 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/what-is-insurance-brokers/">what is insurance brokers ?</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/our-management/">our Management</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'company-history']) ?>">company history</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1552 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'what-is-insurance-brokers']) ?>">what is insurance brokers ?</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1333 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['staff/index']) ?>">our Management</a></li>
                         </ul>
                     </li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2061"><a href="https://shintainserve.com/company-overview/our-approach/">Partnership</a><span class="arrow"><i></i></span>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2061"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-approach']) ?>">Partnership</a><span class="arrow"><i></i></span>
                         <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1296 stm_col_width_default stm_mega_cols_inside_6"><a href="https://shintainserve.com/company-overview/our-approach/">our approach</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1548 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/benefits-for-you/">benefit for you</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1296 stm_col_width_default stm_mega_cols_inside_6"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-approach']) ?>">our approach</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1548 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'benefits-for-you']) ?>">benefit for you</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1301 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/our-partners/">partners</a></li>
                         </ul>
                     </li>

@@ -28,6 +28,10 @@ AppAsset::register($this);
         $this->registerCssFile('@web/css/site.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'service' && $action == 'view') {
         $this->registerCssFile('@web/css/service.css', ['depends' => [\yii\web\YiiAsset::class]]);
+    } elseif ($controller == 'staff' && $action == 'index') {
+        $this->registerCssFile('@web/css/list-staff.css', ['depends' => [\yii\web\YiiAsset::class]]);
+    } elseif ($controller == 'staff' && $action == 'view') {
+        $this->registerCssFile('@web/css/staff.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'company-overview' && $action == 'view' || $controller == 'company-overview' && $action == 'index') {
         $slug = Yii::$app->request->get('slug');
         if ($slug) {
@@ -35,8 +39,7 @@ AppAsset::register($this);
         } else {
             $this->registerCssFile('@web/css/company-overview.css', ['depends' => [\yii\web\YiiAsset::class]]);
         }
-            
-
+        
     }
 
     $this->registerCssFile('@web/css/stm.css', ['depends' => [\yii\web\YiiAsset::class]]);

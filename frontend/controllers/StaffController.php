@@ -1,9 +1,9 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
-use backend\models\Staff;
-use backend\models\StaffSearch;
+use frontend\models\Staff;
+use frontend\models\StaffSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,14 +38,22 @@ class StaffController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new StaffSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $staffs = Staff::find()->where(['is_active' => 1])->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'staffs' => $staffs,
         ]);
     }
+    // public function actionIndex()
+    // {
+    //     $searchModel = new StaffSearch();
+    //     $dataProvider = $searchModel->search($this->request->queryParams);
+
+    //     return $this->render('index', [
+    //         'searchModel' => $searchModel,
+    //         'dataProvider' => $dataProvider,
+    //     ]);
+    // }
 
     /**
      * Displays a single Staff model.
@@ -76,13 +84,8 @@ class StaffController extends Controller
         $model = new Staff();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                $model->slug = \yii\helpers\Inflector::slug($model->name);
-                $model->created_at = date('Y-m-d H:i:s');
-                $model->is_active = 1;
-                $model->is_deleted = 0;
-                $model->save();
-                return $this->redirect(['view', 'slug' => $model->slug]);
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -105,7 +108,7 @@ class StaffController extends Controller
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'slug' => $model->slug]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -151,5 +154,4 @@ class StaffController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
 }
