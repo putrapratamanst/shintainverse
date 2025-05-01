@@ -31,6 +31,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'title',
                 'slug',
                 'description:ntext',
+                'summary',
+                'description:ntext',
+                'types',
                 [
                     'attribute' => 'image',
                     'format' => ['image', ['width' => '350', 'height' => '200']], // atur ukuran di sini
