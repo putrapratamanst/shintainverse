@@ -1,14 +1,11 @@
-Options -Indexes
-Options FollowSymlinks
-RewriteEngine on
+RewriteEngine On
 
-RewriteCond %{HTTP_HOST} ^www\.(.*)$
-RewriteRule ^(.*)$ http://%1/$1 [L,R=301]
+# Akses backend lewat /admin
+RewriteRule ^admin(/.*)?$ backend/web/$1 [L]
 
-RewriteCond %{REQUEST_URI} ^/admin/$
-RewriteRule ^(admin)/$ /$1 [R=301,L]
-RewriteCond %{REQUEST_URI} ^/admin
-RewriteRule ^admin(/.+)?$ /backend/web/$1 [L,PT]
-
-RewriteCond %{REQUEST_URI} ^.*$
-RewriteRule ^(.*)$ /frontend/web/$1
+# Akses frontend untuk semua selain /admin
+RewriteCond %{REQUEST_URI} !^/backend/web/
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ frontend/web/$1 [L]
