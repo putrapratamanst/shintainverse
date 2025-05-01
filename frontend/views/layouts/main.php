@@ -31,6 +31,8 @@ AppAsset::register($this);
         $this->registerCssFile('@web/css/owl.theme.default.min.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'service' && $action == 'view') {
         $this->registerCssFile('@web/css/service.css', ['depends' => [\yii\web\YiiAsset::class]]);
+    } elseif ($controller == 'service' && $action == 'index') {
+        $this->registerCssFile('@web/css/service-list.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'staff' && $action == 'index') {
         $this->registerCssFile('@web/css/list-staff.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'staff' && $action == 'view') {

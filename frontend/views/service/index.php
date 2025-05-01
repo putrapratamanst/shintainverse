@@ -22,7 +22,10 @@
                                             <div class="item_wr">
                                                 <div class="item_thumbnail">
                                                     <a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>">
-                                                        <img width="255" height="182" src="<?= $service->image ?>" class="attachment-consulting-image-255x182-croped" alt="" decoding="async" loading="lazy" srcset="<?= $service->image ?> 255w, <?= $service->image ?> 300w" sizes="(max-width: 255px) 100vw, 255px"> </a>
+                                                        <img width="255" height="182" src="<?=Yii::getAlias('@backend/' . $service->image)?>"
+                                                         class="attachment-consulting-image-255x182-croped" alt="" decoding="async" loading="lazy"
+                                                          srcset="<?=Yii::getAlias('@backend/' . $service->image)?> 255w,
+                                                           <?=Yii::getAlias('@backend/' . $service->image)?> 300w" sizes="(max-width: 255px) 100vw, 255px"> </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5><a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>"><?= $service->title ?></a></h5>

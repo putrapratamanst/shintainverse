@@ -27,11 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= DetailView::widget([
             'model' => $model,
             'attributes' => [
-                'id',
                 'title',
                 'slug',
                 'description:ntext',
-                'image',
+                [
+                    'attribute' => 'image',
+                    'format' => ['image', ['width' => '350', 'height' => '200']], // atur ukuran di sini
+                    'value' => function ($model) {
+                        return $model->image ? Yii::getAlias('@web/' . $model->image) : null;
+                    },
+                    'visible' => !empty($model->image), // Opsional: sembunyikan jika tidak ada foto
+                ],
             ],
         ]) ?>
 

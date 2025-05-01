@@ -4,9 +4,12 @@ namespace backend\controllers;
 
 use backend\models\Service;
 use backend\models\ServiceSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
 
 /**
  * ServiceController implements the CRUD actions for Service model.
@@ -71,10 +74,39 @@ class ServiceController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
+                $coverage = $model->coverage;
+                $dataCoverage = explode(',', $coverage);  // Array: ['value1', 'value2', 'value3']
+
+                // Memecah string menjadi array berdasarkan koma
+        
+
                 $model->slug = \yii\helpers\Inflector::slug($model->title);
                 $model->created_at = date('Y-m-d H:i:s');
                 $model->is_active = 1;
                 $model->is_deleted = 0;
+                $model->image = UploadedFile::getInstance($model, 'image');
+                if ($model->image) {
+                    $uploadPath = 'uploads/service/';
+                    $originalName = uniqid(); // nama acak agar unik
+                    $extension = $model->image->extension;
+                    $originalFileName = $originalName . '.' . $extension;
+                    $fullOriginalPath = $uploadPath . $originalFileName;
+
+                    $model->image->saveAs($fullOriginalPath);
+                    $model->image = $fullOriginalPath;
+
+
+                    $model->save(false);
+
+                    // Buat thumbnail
+                    $width = 300;
+                    $height = 300;
+                    $thumbFileName = $originalName . "_{$width}x{$height}." . $extension;
+                    $fullThumbPath = $uploadPath . $thumbFileName;
+
+                    Image::thumbnail($fullOriginalPath, $width, $height)
+                        ->save($fullThumbPath, ['quality' => 85]);
+                }
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -97,15 +129,33 @@ class ServiceController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $oldImage = $model->image;
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+
+            if ($model->image) {
+                if (!empty($oldImage) && file_exists(Yii::getAlias('@webroot/service/' . $oldImage))) {
+                    unlink(Yii::getAlias('@webroot/service/' . $oldImage));
+                }
+
+                $filename = 'uploads/service/' . uniqid() . '.' . $model->image->extension;
+                $model->image->saveAs(Yii::getAlias('@webroot/' . $filename));
+                $model->image = $filename;
+            } else {
+                $model->image = $oldImage;
+            }
+
+            if ($model->save(false)) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
     }
+
 
     /**
      * Deletes an existing Service model.

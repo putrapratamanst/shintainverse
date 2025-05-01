@@ -22,10 +22,10 @@
                                                         <img width="350" height="204" src="<?= Yii::getAlias('@backend/' . $partner->image) ?>" class="attachment-consulting-image-350x204-croped" alt="" decoding="async" loading="lazy">
                                                     </div>
                                                     <div class="stm_partner_content">
-                                                        <h4 class="no_stripe"><a href="#" target="_self">ACA Insurance</a></h4>
+                                                        <h4 class="no_stripe"><a href="#" target="_self"><?= $partner->name ?></a></h4>
                                                         <div class="position">
-                                                            General Insurance </div>
-                                                        <div class="description">PT. Asuransi Central Asia (ACA) is general insurance company established since 29 August 1956.</div>
+                                                            <?= $partner->category ?> </div>
+                                                        <div class="description"><?= $partner->description ?></div>
                                                     </div>
                                                 </div>
                                                 <?php endforeach; ?>

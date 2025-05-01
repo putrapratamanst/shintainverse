@@ -38,14 +38,15 @@ class Service extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image', 'meta_title', 'meta_description', 'meta_keywords', 'meta_image'], 'default', 'value' => null],
+            [['meta_title', 'meta_description', 'meta_keywords', 'meta_image'], 'default', 'value' => null],
             [['is_active'], 'default', 'value' => 1],
             [['is_deleted'], 'default', 'value' => 0],
             [['title', 'slug', 'description'], 'required'],
             [['description', 'meta_description', 'meta_keywords'], 'string'],
             [['is_active', 'is_deleted'], 'integer'],
             [['created_at'], 'safe'],
-            [['title', 'slug', 'image', 'meta_title', 'meta_image'], 'string', 'max' => 255],
+            [['title', 'slug', 'meta_title', 'meta_image'], 'string', 'max' => 255],
+            [['image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 5 * 1024 * 1024], // max 1MB
         ];
     }
 

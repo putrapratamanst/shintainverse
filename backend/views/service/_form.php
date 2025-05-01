@@ -16,7 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'coverage')->textInput(['placeholder' => 'Enter values separated by comma']);?>
+
+    <?= $form->field($model, 'types')->textInput(['placeholder' => 'Enter values separated by comma']);?>
+
+    <?= $form->field($model, 'image')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
