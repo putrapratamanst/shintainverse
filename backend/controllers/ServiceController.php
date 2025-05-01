@@ -74,8 +74,8 @@ class ServiceController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
-                $coverage = $model->coverage;
-                $dataCoverage = explode(',', $coverage);  // Array: ['value1', 'value2', 'value3']
+                // $coverage = $model->coverage;
+                // $dataCoverage = explode(',', $coverage);  // Array: ['value1', 'value2', 'value3']
 
                 // Memecah string menjadi array berdasarkan koma
         

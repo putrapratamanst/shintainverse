@@ -1,3 +1,8 @@
+<?php
+
+use frontend\models\Service;
+use yii\helpers\Url;
+?>
 <footer id="footer" class="footer style_2 no-copyright">
 
     <div class="widgets_row">
@@ -37,11 +42,11 @@
                             <h4 class="widget_title no_stripe">About Us</h4>
                             <div class="menu-about-us-footer-container">
                                 <ul id="menu-about-us-footer" class="menu">
-                                    <li id="menu-item-1602" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1602"><a href="https://shintainserve.com/company-overview/">Company overview</a></li>
-                                    <li id="menu-item-1603" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1603"><a href="https://shintainserve.com/company-overview/benefits-for-you/">Benefits for you</a></li>
-                                    <li id="menu-item-1604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1604"><a href="https://shintainserve.com/company-overview/our-approach/">Our approach</a></li>
-                                    <li id="menu-item-1605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1605"><a href="https://shintainserve.com/company-overview/our-management/">Our management</a></li>
-                                    <li id="menu-item-1606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1606"><a href="https://shintainserve.com/company-overview/our-partners/">Our partners</a></li>
+                                    <li id="menu-item-1602" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1602"><a href="<?= Url::to(['company-overview/index']) ?>">Company overview</a></li>
+                                    <li id="menu-item-1603" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1603"><a href="<?= Url::to(['company-overview/benefits-for-you']) ?>">Benefits for you</a></li>
+                                    <li id="menu-item-1604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1604"><a href="<?= Url::to(['company-overview/our-approach']) ?>">Our approach</a></li>
+                                    <li id="menu-item-1605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1605"><a href="<?= Url::to(['staff/index']) ?>">Our management</a></li>
+                                    <li id="menu-item-1606" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1606"><a href="<?= Url::to(['company-overview/our-partners']) ?>">Our partners</a></li>
                                 </ul>
                             </div>
                         </section>
@@ -49,20 +54,12 @@
                             <h4 class="widget_title no_stripe">Products</h4>
                             <div class="menu-links-container">
                                 <ul id="menu-links" class="menu">
-                                    <li id="menu-item-1570" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-1570"><a href="https://shintainserve.com/service/marine-cargo-insurance/">Marine Cargo Insurance</a></li>
-                                    <li id="menu-item-1568" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-1568"><a href="https://shintainserve.com/service/heavy-equipment-insurance/">Heavy Equipment Insurance</a></li>
-                                    <li id="menu-item-1571" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-1571"><a href="https://shintainserve.com/service/marine-hull-insurance/">Marine Hull Insurance</a></li>
-                                    <li id="menu-item-1572" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-1572"><a href="https://shintainserve.com/service/motor-vehicle-insurance/">Motor Vehicle Insurance</a></li>
-                                    <li id="menu-item-1569" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-1569"><a href="https://shintainserve.com/service/property-insurance/">Property Insurance</a></li>
-                                    <li id="menu-item-1567" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-1567"><a href="https://shintainserve.com/service/other-insurance/">Other Insurance</a></li>
-                                    <li id="menu-item-2069" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2069"><a href="https://shintainserve.com/service/erection-all-risk/">Erection All Risk</a></li>
-                                    <li id="menu-item-2070" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2070"><a href="https://shintainserve.com/service/contractor-all-risk/">Contractors’ All Risk</a></li>
-                                    <li id="menu-item-2071" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2071"><a href="https://shintainserve.com/service/fidelity-insurance/">Fidelity Insurance</a></li>
-                                    <li id="menu-item-2072" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2072"><a href="https://shintainserve.com/service/money-insurance/">Money Insurance</a></li>
-                                    <li id="menu-item-2073" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2073"><a href="https://shintainserve.com/service/moveable-all-risk/">Moveable All Risk</a></li>
-                                    <li id="menu-item-2074" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2074"><a href="https://shintainserve.com/service/personal-accident-insurance/">Personal Accident Insurance</a></li>
-                                    <li id="menu-item-2075" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2075"><a href="https://shintainserve.com/service/public-liablity-insurance/">Public Liablity Insurance</a></li>
-                                    <li id="menu-item-2076" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-2076"><a href="https://shintainserve.com/service/travel-insurance/">Travel Insurance</a></li>
+                                    <?php
+                                    $serviceFooter = Service::find()->where(['is_active' => 1, 'is_deleted' => 0])->all();
+
+                                    foreach ($serviceFooter as $service): ?>
+                                        <li id="menu-item-<?= $service->id ?>" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-<?= $service->id ?>"><a href="<?= Url::to(['service/' . $service->slug]) ?>"><?= $service->title ?></a></li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                         </section>
@@ -82,7 +79,7 @@
                             </div>
                         </section>
                         <section id="block-5" class="widget widget_block widget_media_image">
-                            <figure class="wp-block-image size-full is-resized"><img decoding="async" loading="lazy" src="https://shintainserve.com/wp-content/uploads/2023/09/footer-logo.png" alt="" class="wp-image-2630" width="200" height="133"></figure>
+                            <figure class="wp-block-image size-full is-resized"><img decoding="async" loading="lazy" src="<?= Url::to(['images/footer-logo.png']) ?>" alt="" class="wp-image-2630" width="200" height="133"></figure>
                         </section>
                         <section id="block-6" class="widget widget_block widget_media_image"></section>
                     </div>

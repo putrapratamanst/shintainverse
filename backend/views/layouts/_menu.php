@@ -16,6 +16,14 @@ use yii\helpers\Url;
             </a>
         </li>
         <li class="nav-item">
+            <a href="<?= Url::to(['callback/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-comment"></i>
+                <p>
+                    Callback
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="<?= Url::to(['company-overview/index']) ?>" class="nav-link">
                 <i class="nav-icon far fa-bookmark"></i>
                 <p>
@@ -25,10 +33,27 @@ use yii\helpers\Url;
             </a>
         </li>
         <li class="nav-item">
+            <a href="<?= Url::to(['feedback/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-eye"></i>
+                <p>
+                    Feedback
+                    <!-- <span class="badge badge-info right">2</span> -->
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="<?= Url::to(['staff/index']) ?>" class="nav-link">
                 <i class="nav-icon far fa-user"></i>
                 <p>
                     Staffs
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= Url::to(['page/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-window-restore"></i>
+                <p>
+                    Page
                 </p>
             </a>
         </li>
@@ -45,6 +70,14 @@ use yii\helpers\Url;
                 <i class="nav-icon far fa-copy"></i>
                 <p>
                     Services
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= Url::to(['question/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-circle"></i>
+                <p>
+                    Questions
                 </p>
             </a>
         </li>

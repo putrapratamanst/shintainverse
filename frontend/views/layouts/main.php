@@ -37,6 +37,8 @@ AppAsset::register($this);
         $this->registerCssFile('@web/css/list-staff.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'staff' && $action == 'view') {
         $this->registerCssFile('@web/css/staff.css', ['depends' => [\yii\web\YiiAsset::class]]);
+    } elseif ($controller == 'page' && $action == 'view') {
+        $this->registerCssFile('@web/css/page.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'partner') {
         $this->registerCssFile('@web/css/partner.css', ['depends' => [\yii\web\YiiAsset::class]]);
     } elseif ($controller == 'company-overview' && $action == 'view' || $controller == 'company-overview' && $action == 'index') {
@@ -53,7 +55,10 @@ AppAsset::register($this);
     $this->registerJsFile('@web/js/countUp.js', ['depends' => [\yii\web\YiiAsset::class]]);
     JqueryAsset::register($this);
 
-    ?> <?php $this->registerCsrfMetaTags() ?>
+    ?> 
+    <link rel="stylesheet" id="consulting-layout-css" href="https://shintainserve.com/wp-content/themes/consulting/assets/css/layout_1/main.css?ver=4.1.3" type="text/css" media="all">
+    <link rel="stylesheet" id="select2-css" href="https://shintainserve.com/wp-content/themes/consulting/assets/css/select2.min.css?ver=4.1.3" type="text/css" media="all">
+    <?php $this->registerCsrfMetaTags() ?>
     <?php $this->registerJsFile('@web/js/jquery.min.js', [
         'position' => View::POS_HEAD,
         'id' => 'jquery-core-js' // ID untuk tag <script>
@@ -62,8 +67,8 @@ AppAsset::register($this);
         'position' => View::POS_HEAD,
         'id' => 'jquery-migrate-js' // ID untuk tag <script>
     ]);   ?>
-   
-    
+
+
 </head>
 <title><?= Html::encode($this->title) ?></title>
 <?php $this->head() ?>
@@ -105,4 +110,4 @@ AppAsset::register($this);
 </body>
 
 </html>
-<?php $this->endPage();
+<?php $this->endPage(); ?>

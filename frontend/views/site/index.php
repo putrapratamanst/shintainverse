@@ -4,7 +4,7 @@ use yii\helpers\Url;
 
 $this->title = 'Home - Shinta Inserve';
 ?>
-<?= $this->render('_banner',['banners'=>$banners]) ?>
+<?= $this->render('_banner', ['banners' => $banners]) ?>
 <div class="container">
 
     <div class="content-area">
@@ -36,7 +36,7 @@ $this->title = 'Home - Shinta Inserve';
                                             </div>
                                             <div class="vc_cta3-actions">
                                                 <div class="vc_btn3-container vc_btn3-right">
-                                                    <a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-block vc_btn3-icon-right vc_btn3-color-theme_style_2" href="http://clients.sorbetoutsourcing.com/shintainserve/contact-us-2/" title="">contact us <i class="vc_btn3-icon fa fa-chevron-right"></i></a>
+                                                    <a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-block vc_btn3-icon-right vc_btn3-color-theme_style_2" href="<?= Url::to(['page/contact-us']) ?>" title="">contact us <i class="vc_btn3-icon fa fa-chevron-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@ $this->title = 'Home - Shinta Inserve';
                                             <h3>What is insurance brokers</h3>
                                         </div>
                                         <p>One of the most important aspects of insuring your business is selecting an appropriate level of insurance coverage. When coping with the unexpected, reliable advice from a seasoned professional would be a great addition to your company’s strategy.</p>
-                                        <a class="read_more" target="_self" href="http://clients.sorbetoutsourcing.com/shintainserve/company-overview/what-is-insurance-brokers/"><span>read more</span><i class=" fa fa-chevron-right stm_icon"></i></a>
+                                        <a class="read_more" target="_self" href="<?= Url::to(['company-overview/what-is-insurance-brokers']) ?>"><span>read more</span><i class=" fa fa-chevron-right stm_icon"></i></a>
 
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@ $this->title = 'Home - Shinta Inserve';
                                             <h3>Are You Looking for Insurance Advisor?</h3>
                                         </div>
                                         <p>Long term beneficial solutions for corporations, businesses, and individuals.</p>
-                                        <a class="read_more" target="_self" href="http://clients.sorbetoutsourcing.com/shintainserve/company-overview/our-approach/"><span>read more</span><i class=" fa fa-chevron-right stm_icon"></i></a>
+                                        <a class="read_more" target="_self" href="<?= Url::to(['company-overview/our-approach']) ?>"><span>read more</span><i class=" fa fa-chevron-right stm_icon"></i></a>
 
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@ $this->title = 'Home - Shinta Inserve';
                                             <h3>Benefit for you</h3>
                                         </div>
                                         <p>We offer rapid solution to complex business challenges with cooperative and process-driven steps to ensure the long-term health of your company.</p>
-                                        <a class="read_more" target="_self" href="http://clients.sorbetoutsourcing.com/shintainserve/company-overview/benefits-for-you/"><span>read more</span><i class=" fa fa-chevron-right stm_icon"></i></a>
+                                        <a class="read_more" target="_self" href="<?= Url::to(['company-overview/benefits-for-you']) ?>"><span>read more</span><i class=" fa fa-chevron-right stm_icon"></i></a>
 
                                     </div>
                                 </div>
@@ -130,14 +130,14 @@ $this->title = 'Home - Shinta Inserve';
 
 
 
-                                        <div class="info_box_image"><img width="440" height="184" src="https://shintainserve.com/wp-content/uploads/2019/01/logo-shinta-small.jpg" class="attachment-full" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/logo-shinta-small.jpg 440w, https://shintainserve.com/wp-content/uploads/2019/01/logo-shinta-small-300x125.jpg 300w" sizes="(max-width: 440px) 100vw, 440px"></div>
+                                        <div class="info_box_image"><img width="440" height="184" src="<?= Url::to(['images/logo-shinta-small.jpg']) ?>" class="attachment-full" alt="" decoding="async" loading="lazy" srcset="<?= Url::to(['images/logo-shinta-small.jpg']) ?> 440w, <?= Url::to(['images/logo-shinta-small-300x125.jpg']) ?> 300w" sizes="(max-width: 440px) 100vw, 440px"></div>
 
 
                                         <div class="title">
                                             <h4 class="no_stripe">About Us</h4>
                                         </div>
                                         <p>PT Shinta Inserve is a specialist in insurance brokerage and consulting services. We have been serving clients across a variety of industries since our inception in 1990, and have obtained a license from the Ministry of Finance of the Republic of Indonesia, which was ratified by Decree No.KEP.167/KM.13/1990.</p>
-                                        <a class="read_more" target="_self" href="http://clients.sorbetoutsourcing.com/shintainserve/company-overview/company-history/">Read More</a>
+                                        <a class="read_more" target="_self" href="<?= Url::to(['company-overview/company-history']) ?>">Read More</a>
 
                                     </div>
                                 </div>
@@ -184,27 +184,26 @@ $this->title = 'Home - Shinta Inserve';
                             <div class="wpb_wrapper">
                                 <div class="stats_counter style_2 center ">
                                     <div class="inner">
-                                        <h3 class="no_stripe" id="counter_6805387d04e30">0%</h3>
+                                        <h3 class="no_stripe" id="counter_6812fb0db89c5">0%</h3>
                                         <div class="counter_description">
                                             <p>cases<br>
                                                 completed</p>
                                         </div>
-                                        <?php
-                                        $this->registerJs("
-var counter = new countUp('counter_6805387d04e30', 0, 100, 0, 2.5, {
-useEasing: true,
-useGrouping: false,
-prefix: '',
-suffix: '%'
-});
-
-$(window).scroll(function() {
-if ($('#counter_6805387d04e30').is_on_screen()) {
-counter.start();
-}
-});
-", \yii\web\View::POS_READY);
-                                        ?>
+                                        <script type="text/javascript">
+                                            jQuery(document).ready(function($) {
+                                                var counter_6812fb0db89c5 = new countUp("counter_6812fb0db89c5", 0, 100, 0, 2.5, {
+                                                    useEasing: true,
+                                                    useGrouping: false,
+                                                    prefix: '',
+                                                    suffix: '%'
+                                                });
+                                                $(window).scroll(function() {
+                                                    if ($("#counter_6812fb0db89c5").is_on_screen()) {
+                                                        counter_6812fb0db89c5.start();
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -215,27 +214,26 @@ counter.start();
                             <div class="wpb_wrapper">
                                 <div class="stats_counter style_2 center ">
                                     <div class="inner">
-                                        <h3 class="no_stripe" id="counter_6805387d050bb">0</h3>
+                                        <h3 class="no_stripe" id="counter_6812fb0db8c94">0</h3>
                                         <div class="counter_description">
                                             <p>number of<br>
                                                 clients</p>
                                         </div>
-                                        <?php
-                                        $this->registerJs("
-var counter = new countUp('counter_6805387d050bb', 0, 800, 0, 2.5, {
-useEasing: true,
-useGrouping: false,
-prefix: '',
-suffix: ''
-});
-
-$(window).scroll(function() {
-if ($('#counter_6805387d050bb').is_on_screen()) {
-counter.start();
-}
-});
-", \yii\web\View::POS_READY);
-                                        ?>
+                                        <script type="text/javascript">
+                                            jQuery(document).ready(function($) {
+                                                var counter_6812fb0db8c94 = new countUp("counter_6812fb0db8c94", 0, 800, 0, 2.5, {
+                                                    useEasing: true,
+                                                    useGrouping: false,
+                                                    prefix: '',
+                                                    suffix: ''
+                                                });
+                                                $(window).scroll(function() {
+                                                    if ($("#counter_6812fb0db8c94").is_on_screen()) {
+                                                        counter_6812fb0db8c94.start();
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -246,27 +244,26 @@ counter.start();
                             <div class="wpb_wrapper">
                                 <div class="stats_counter style_2 center ">
                                     <div class="inner">
-                                        <h3 class="no_stripe" id="counter_6805387d052f0">0</h3>
+                                        <h3 class="no_stripe" id="counter_6812fb0db8f15">0</h3>
                                         <div class="counter_description">
                                             <p>insurance<br>
                                                 partner</p>
                                         </div>
-                                        <?php
-                                        $this->registerJs("
-var counter = new countUp('counter_6805387d052f0', 0, 30, 0, 3, {
-useEasing: true,
-useGrouping: false,
-prefix: '',
-suffix: ''
-});
-
-$(window).scroll(function() {
-if ($('#counter_6805387d052f0').is_on_screen()) {
-counter.start();
-}
-});
-", \yii\web\View::POS_READY);
-                                        ?>
+                                        <script type="text/javascript">
+                                            jQuery(document).ready(function($) {
+                                                var counter_6812fb0db8f15 = new countUp("counter_6812fb0db8f15", 0, 30, 0, 3, {
+                                                    useEasing: true,
+                                                    useGrouping: false,
+                                                    prefix: '',
+                                                    suffix: ''
+                                                });
+                                                $(window).scroll(function() {
+                                                    if ($("#counter_6812fb0db8f15").is_on_screen()) {
+                                                        counter_6812fb0db8f15.start();
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -323,18 +320,25 @@ counter.start();
                         </div>
                     </div>
                     <div class="wpb_column vc_column_container vc_col-sm-8">
+                        <?php foreach (Yii::$app->session->getAllFlashes() as $type => $message): ?>
+                            <div class="alert alert-<?= $type; ?>">
+                                <?= $message; ?>
+                            </div>
+                        <?php endforeach; ?>
+
                         <div class="vc_column-inner ">
                             <div class="wpb_wrapper">
                                 <div role="form" class="wpcf7" id="wpcf7-f1283-p1024-o1" lang="en-US" dir="ltr">
                                     <div class="screen-reader-response" aria-live="polite"></div>
-                                    <form action="/#wpcf7-f1283-p1024-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                                    <form action="<?= \yii\helpers\Url::to(['callback/store']) ?>" method="post" class="wpcf7-form" novalidate="novalidate">
+                                        <?= \yii\helpers\Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
                                         <div style="display: none;">
                                             <input type="hidden" name="_wpcf7" value="1283">
                                             <input type="hidden" name="_wpcf7_version" value="5.1.9">
                                             <input type="hidden" name="_wpcf7_locale" value="en_US">
                                             <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1283-p1024-o1">
                                             <input type="hidden" name="_wpcf7_container_post" value="1024">
-                                            <input type="hidden" name="g-recaptcha-response" value="03AFcWeA4y-UV9IKiJ9warDvcjiIuYj1hY3bhMX9j24icL5yb03D75bF2IT5W2m7VgHCEKq0PUc9CKB0iiJghRK7sZc9Z_-yFr2_43hDZLX076BfJ5cuQpX1t6-0Cl3j8E5Z5zbW0qkaweDuVjHH2FQ3Tnp_8YajbXjyG-44XOAQblcZVlOlQbq6T-nDyAj228EDoLgDSHa_RLJLddXRTS9qDHTggfgywqblPVY4OYBYOg3h94Hsb7mRW5sbDIVmVkBJ5TB21PFMG36BESLcNWRDGZYr2CCKo2D6NjWYdjAWqWD0nH0rUm90DFSKyRVROFh2MMw5_pDReW1RGLow_fgkmHKEa-4vimKD65_BcAEKyyYzUqli1whHsQDudmiOQeWAICRF4jAVteoK93iOXH6CKK77lFJ4ZXzibCBOdMumvoB6LUKZgMToUZIhyNzS1k6TvYnxegsoQkk6P8kUI6L64X78xoR9t0BhReTUvSxXrqwOejPH4sLPA7khHXoFhN-sZPpj2r30s248otVoM3I3G71Rn2Pfs-Cwp0H7cLQLoE3edBVOSFZfpqeJ4ALDgyeKtPGif3pKhhgSpfkfDBmVhXTGVxuxGPuwimrbiqIQbLVQRTo8D0MKDaJmpg8-serueE-JB5hYAHV9mgFUtiN6nXOSfQU6sxI9B6YwjnJzD0Vs4qmQSZ3Jy5kRRNo0g-DESCkl6AxDfTE48jxhrSf04Y5Xzzs6IeOM3IkQq6tOsG7BNC7B23rALYQrf66_glhIgfG1x0yiJysbADdhlepebwASoX2jTpQjbrSyQdgKfyxkFgp-yGbzL1n0WFwao2t-SEGouoQu4OgpP1fEkPCNsyr3-G7puOGkZLrEvBsOBmv5oa2j6uoVT3TCuSWQ2MkO8AD7WhvfPSXcYQzg9FnC9TLhJAnT8lDcrswEVefUf5eRdlGFLrO7e-cRkXtLrRDj494tkRgCwF">
+                                            <input type="hidden" name="g-recaptcha-response" value="03AFcWeA7eyZAPK9tM6S6N6pR2Gg27hg-IBjmh9rXhe54toNokKqO9e7E0Mi5u09pdbXNJa5migaxncxQshPjh14oCypJJ5vSiBRAmgib_YJYfAUNrRJ5XMX9XufpbojBOzQLKE2cBy2V96PaMXfVyFUl223jwiUGuDR2mJk-qpagzZOYAybgBZH8PAA1_IqZumFAAU1LJlu2hjwsxbSlzefed0mDDMDf16ZlLBDpaRFEUIVZ9Jg-2bBAe9pLLQ5CIXm1qBit4QZSirYZaEnBVCkhep7DasqT7781NFKMTvGlmwiFyq3JqlF-YQLVaeVoVBkp0H5YzlCtdEQiose8JUmHgN91oEUI5MxHUI6XoiWKeiJoEoTQfEdyGjkeklaay0m9NtuWWPiy05YhEKTPBT19a-Mw4KfBxPw0K-rWNzLskG1G_T30ipmRd5ml7-0Ggov72X7MuYGFFpyfnTJyMQC2cpqFzEXPXooh4BEY5w8MvZQAvia689JS_2lSy-9UyDh96OJOI-Evf_V7Gfq5FxH_UGQvKOMXeoGduW993OxQfRqw1boRgWPldb9HZfEYJ10CsNGDVVZBposb3L12LEiwLCB0b5k5GKOhzx0BSLMMQPF8cxhH0oT5dANSVde_dwa_Wv4QSWEWp5yZxX7vNpoMwHsEB5WTIZ-5c_AR8tnIFG9QIEZRNeboku-Q6JMUtVD_BxErzrrM2hq4eVYMtNnwSBtFP7eVMRTLDrO3wxh9-KUBM0qs6tJBdlKaaBIDM0JIepY-Y4Ma1HbbP7K68wIhGWZB0cspfdeFOj9kdzFQmjoMcnMSQIHwlYB-p3xqt-ET-7ETmR-ku2mlhzxT6xXV12hL2bqTnXHKOVIHeuaw7vDbEJ-xzdjY_pYx3VJmGIG3gvmVcIriQRuPooCCpH7mjBmaRwySd3VashUF7B2ZBsxLfrjDHPDE">
                                         </div>
                                         <div class="request_callback">
                                             <p>I would like to discuss:</p>
@@ -345,22 +349,22 @@ counter.start();
                                                                 <option value="">Consultation</option>
                                                                 <option value="Audit &amp; Assurance">Audit &amp; Assurance</option>
                                                                 <option value="Claim">Claim</option>
-                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-services_consulting-9r-container"><span class="select2-selection__rendered" id="select2-services_consulting-9r-container" title="Consultation">Consultation</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></span>
+                                                            </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="input-group">
-                                                        <span class="wpcf7-form-control-wrap text-name"><input type="text" name="text-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First name" fdprocessedid="ldvuxs"></span>
+                                                        <span class="wpcf7-form-control-wrap text-name"><input type="text" name="text-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="First name" fdprocessedid="tc19n"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="input-group">
-                                                        <span class="wpcf7-form-control-wrap phone"><input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Phone number" fdprocessedid="b91r9i"></span>
+                                                        <span class="wpcf7-form-control-wrap phone"><input type="tel" name="phone" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Phone number" fdprocessedid="dq12jl"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="input-group">
-                                                        <button type="submit" class="button size-lg icon_right" fdprocessedid="srlwz5">submit <i class="fa fa-chevron-right"></i></button>
+                                                        <button type="submit" class="button size-lg icon_right" fdprocessedid="pgzg1g">submit <i class="fa fa-chevron-right"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -514,3 +518,10 @@ counter.start();
     </div>
 
 </div> <!--.container-->
+
+<script>
+    $(document).ready(function() {
+        // Inisialisasi Select2 untuk elemen dropdown
+        $('select').select2();
+    });
+</script>

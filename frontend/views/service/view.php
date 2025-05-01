@@ -33,11 +33,12 @@
                                                 <div class="wpb_text_column wpb_content_element ">
                                                     <div class="wpb_wrapper">
                                                         <ul style="font-size: 13px; line-height: 18px;">
-                                                            <?php 
+                                                            <?php
                                                             if ($model->coverage) {
-                                                            foreach ($model->coverage as $coverage){ ?>
-                                                                <li><?= $coverage ?></li>
-                                                             <?php }} ?>
+                                                                foreach ($model->coverage as $coverage) { ?>
+                                                                    <li><?= $coverage ?></li>
+                                                            <?php }
+                                                            } ?>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -80,7 +81,8 @@
                                             <div class="wpb_wrapper">
                                                 <div role="form" class="wpcf7" id="wpcf7-f599-p1464-o1" lang="en-US" dir="ltr">
                                                     <div class="screen-reader-response" aria-live="polite"></div>
-                                                    <form action="/service/property-insurance/#wpcf7-f599-p1464-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+                                                    <form action="<?= \yii\helpers\Url::to(['feedback/store']) ?>" method="post" class="wpcf7-form" novalidate="novalidate">
+                                                        <?= \yii\helpers\Html::hiddenInput(Yii::$app->request->csrfParam, Yii::$app->request->getCsrfToken()) ?>
                                                         <div style="display: none;">
                                                             <input type="hidden" name="_wpcf7" value="599">
                                                             <input type="hidden" name="_wpcf7_version" value="5.1.9">
@@ -153,7 +155,8 @@
                                                                                 <option value="Sumatera Selatan">Sumatera Selatan</option>
                                                                                 <option value="Sumatera Utara">Sumatera Utara</option>
                                                                                 <option value="Yogyakarta">Yogyakarta</option>
-                                                                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-state-d5-container"><span class="select2-selection__rendered" id="select2-state-d5-container" title="Province">Province</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span></span>
+                                                                            </select>
+                                                                            
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -165,6 +168,11 @@
                                                         </div>
                                                         <div class="wpcf7-response-output wpcf7-display-none" aria-hidden="true"></div>
                                                     </form>
+                                                    <?php foreach (Yii::$app->session->getAllFlashes() as $type => $message): ?>
+                                                        <div class="alert alert-<?= $type; ?>">
+                                                            <?= $message; ?>
+                                                        </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -173,107 +181,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="wpb_column vc_column_container vc_col-sm-3 vc_hidden-sm vc_hidden-xs">
-                        <div class="vc_column-inner vc_custom_1543299915118">
-                            <div class="wpb_wrapper">
-                                <div class="stm_sidebar">
-                                    <style type="text/css" scoped="">
-                                        .vc_custom_1452056597103 {
-                                            margin-right: 0px !important;
-                                            margin-bottom: 30px !important;
-                                            margin-left: 0px !important;
-                                        }
-
-                                        .vc_custom_1451998133493 {
-                                            margin-bottom: 30px !important;
-                                        }
-
-                                        .vc_custom_1452056633692 {
-                                            padding-top: 37px !important;
-                                            padding-right: 30px !important;
-                                            padding-bottom: 40px !important;
-                                            padding-left: 30px !important;
-                                        }
-
-                                        .vc_custom_1547111963888 {
-                                            margin-bottom: 9px !important;
-                                        }
-
-                                        .vc_custom_1547111969286 {
-                                            margin-bottom: 17px !important;
-                                        }
-                                    </style>
-                                    <div class="vc_row wpb_row vc_row-fluid">
-                                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-                                                    <div class="vc_wp_custommenu wpb_content_element"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vc_row wpb_row vc_row-fluid third_bg_color vc_custom_1452056597103">
-                                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                                            <div class="vc_column-inner vc_custom_1452056633692">
-                                                <div class="wpb_wrapper">
-                                                    <div class="vc_custom_heading vc_custom_1547111963888 text_align_left">
-                                                        <div style="font-size: 16px;color: #222222;text-align: left;font-family:Poppins;font-weight:600;font-style:normal">How Can We Help You?</div>
-                                                    </div>
-                                                    <div class="wpb_text_column wpb_content_element  vc_custom_1547111969286">
-                                                        <div class="wpb_wrapper">
-                                                            <p>Contact our nearest office or submit a business inquiry online.</p>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="vc_btn3-container vc_btn3-inline">
-                                                        <button class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-icon-left vc_btn3-color-white" fdprocessedid="t8m07f"><i class="vc_btn3-icon fa fa-phone-square"></i> contacts</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="vc_row wpb_row vc_row-fluid vc_custom_1451998133493">
-                                        <div class="wpb_column vc_column_container vc_col-sm-12">
-                                            <div class="vc_column-inner ">
-                                                <div class="wpb_wrapper">
-
-                                                    <div class="stm_testimonials cols_1 style_1">
-                                                        <div class="item">
-                                                            <div class="testimonial">
-                                                                <p>Thank you for all your help with our insurance. Your team have been great to work with, very detailed and professional. Whether it’s for consultation, risk assessment, choosing the right policy, or claim settlement, the team always gets the job well done.</p>
-                                                            </div>
-                                                            <div class="testimonial-info clearfix">
-                                                                <div class="testimonial-image"><img width="50" height="50" src="https://shintainserve.com/wp-content/uploads/2015/12/placeholder-50x50.gif" class="attachment-consulting-image-50x50-croped size-consulting-image-50x50-croped wp-post-image" alt="placeholder" decoding="async" srcset="https://shintainserve.com/wp-content/uploads/2015/12/placeholder-50x50.gif 50w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-150x150.gif 150w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-320x320.gif 320w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-300x300.gif 300w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-100x100.gif 100w" sizes="(max-width: 50px) 100vw, 50px"></div>
-                                                                <div class="testimonial-text">
-                                                                    <div class="name">Bambang Haryanto</div>
-                                                                    <div class="company">
-                                                                        Finance Department </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item">
-                                                            <div class="testimonial">
-                                                                <p>My company has been using Shinta Inserve as our insurance broker since we started. They have helped me with insurance for my business as well as my home and personal policies. Consistent, responsive, and informative. Highly recommended!</p>
-                                                            </div>
-                                                            <div class="testimonial-info clearfix">
-                                                                <div class="testimonial-image"><img width="50" height="50" src="https://shintainserve.com/wp-content/uploads/2015/12/placeholder-50x50.gif" class="attachment-consulting-image-50x50-croped size-consulting-image-50x50-croped wp-post-image" alt="placeholder" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2015/12/placeholder-50x50.gif 50w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-150x150.gif 150w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-320x320.gif 320w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-300x300.gif 300w, https://shintainserve.com/wp-content/uploads/2015/12/placeholder-100x100.gif 100w" sizes="(max-width: 50px) 100vw, 50px"></div>
-                                                                <div class="testimonial-text">
-                                                                    <div class="name">Nimas Surya</div>
-                                                                    <div class="company">
-                                                                        Finance Department </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?= $this->render('@frontend/views/testimonies/index', ['testimonies' => $testimonies]) ?>
                 </div>
             </div>
         </article> <!-- #post-## -->

@@ -32,7 +32,7 @@ use yii\helpers\Url;
                             </ul>
                         </li>
                         <li id="menu-item-1310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1310"><a href="<?= Url::to(['service/index']) ?>">Products</a></li>
-                        <li id="menu-item-1355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1355"><a href="https://shintainserve.com/contact-us/">Contact Us</a></li>
+                        <li id="menu-item-1355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1355"><a href="<?= Url::to(['page/contact-us']) ?>">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@ use yii\helpers\Url;
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1310"><a href="https://shintainserve.com/products/">Products</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1355"><a href="https://shintainserve.com/contact-us/">Contact Us</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1355"><a href="<?= Url::to(['page/contact-us']) ?>">Contact Us</a></li>
                 </ul>
 
                 <div class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-legacy-list-horizontal">

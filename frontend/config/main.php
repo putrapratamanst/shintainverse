@@ -44,10 +44,13 @@ return [
                 'company-overview/<slug>' => 'company-overview/view',
                 'staff/index' => 'staff/index',
                 'staff/<slug>' => 'staff/view',
+                'page/<slug>' => 'page/view',
+                'service/index' => 'service/index',
+                'service/<slug>' => 'service/view',
             ],
         ],
     ],
-    'aliases'=>[
+    'aliases' => [
         '@backend' => 'http://localhost:8002',
     ],
     'params' => $params,

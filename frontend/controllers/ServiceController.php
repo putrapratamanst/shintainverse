@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use frontend\models\Service;
 use frontend\models\ServiceSearch;
+use frontend\models\Testimonies;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,12 +64,14 @@ class ServiceController extends Controller
      */
     public function actionView($slug)
     {
+        $testimonies = Testimonies::find()->all();
         $model = $this->findModelBySlug($slug);
         if ($model->coverage) {
             $model->coverage = json_decode($model->coverage);
         }
         return $this->render('view', [
             'model' => $model,
+            'testimonies' => $testimonies
         ]);
     }
 

@@ -1,3 +1,7 @@
+<?php
+
+use yii\helpers\Url;
+?>
 <div class="wpb_column vc_column_container vc_col-sm-3">
     <div class="vc_column-inner vc_custom_1543300659977">
         <div class="wpb_wrapper">
@@ -51,7 +55,7 @@
                                     </div>
                                 </div>
                                 <div class="vc_btn3-container vc_btn3-inline">
-                                    <a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-icon-left vc_btn3-color-white" href="http://shintainserve.com/contact-us/" title=""><i class="vc_btn3-icon fa fa-phone-square"></i> contacts</a>
+                                    <a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-icon-left vc_btn3-color-white" href="<?= Url::to(['page/contact-us']) ?>" title=""><i class="vc_btn3-icon fa fa-phone-square"></i> contacts</a>
                                 </div>
                             </div>
                         </div>
