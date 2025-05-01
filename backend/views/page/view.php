@@ -15,27 +15,29 @@ $this->registerCssFile('@web/css/page.css', [
 ]);
 ?>
 <div class="card">
-<div class="card-body">
+    <div class="card-body">
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
+        <p>
+            <?= Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> Back', ['index'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
+
+        <?= DetailView::widget([
+            'model' => $model,
+            'attributes' => [
+                'page',
+                [
+                    'attribute' => 'content',
+                    'format' => 'raw',
+                    'value' => '<div class="preview-content">' . $model->content . '</div>',
+                ],
             ],
         ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'page',
-            [
-                'attribute' => 'content',
-                'format' => 'raw',
-                'value' => '<div class="preview-content">' . $model->content . '</div>',
-            ],        ],
-    ]) ?>
-</div>
+    </div>

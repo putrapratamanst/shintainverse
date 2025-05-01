@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $css = "staff.css";
 
-$this->registerCssFile('@web/css/'. $css, [
+$this->registerCssFile('@web/css/' . $css, [
     'depends' => [\yii\web\JqueryAsset::class],
 ]);
 
@@ -22,6 +22,7 @@ $this->registerCssFile('@web/css/'. $css, [
     <div class="card-body">
 
         <p>
+            <?= Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> Back', ['index'], ['class' => 'btn btn-success']) ?>
             <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('Delete', ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',

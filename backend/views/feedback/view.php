@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-body">
         <p>
             <?= Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> Back', ['index'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('<i class="fa fa-arrow-left" aria-hidden="true"></i> Back', ['index'], ['class' => 'btn btn-success']) ?>
         </p>
 
         <?= DetailView::widget([
