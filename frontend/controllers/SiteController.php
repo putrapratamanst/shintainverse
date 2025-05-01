@@ -16,6 +16,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Partner;
 use frontend\models\Service;
 
 /**
@@ -87,12 +88,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $partners = Partner::find()->all();
         $banners = $this->banner->getActiveBanners();
         $services = $this->product->getActiveServicess(6);
         $this->view->params['services'] = $services;
         return $this->render('index', [
             'services' => $services,
             'banners' => $banners,
+            'partners' => $partners,
         ]);
     }
 

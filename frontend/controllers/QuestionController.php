@@ -43,6 +43,7 @@ class QuestionController extends Controller
             $model->email = $post['email'];
             $model->phone_number = $post['phone'];
             $model->comment = $post['comment'];
+            $model->is_read = 0;
 
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Question has been submitted.');

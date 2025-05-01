@@ -40,7 +40,7 @@ class CallbackController extends Controller
             $model->first_name = $post['text-name'];
             $model->phone_number = $post['phone'];
             $model->category = $post['services_consulting'];
-
+            $model->is_read = 0;
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Request has been submitted.');
                 return $this->redirect(['site/index']);

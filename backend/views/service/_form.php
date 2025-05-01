@@ -21,7 +21,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'types')->textInput(['placeholder' => 'Enter values separated by comma']);?>
 
     <?= $form->field($model, 'image')->fileInput() ?>
-
+    <?php if ($model->image): ?>
+        <div style="text-align:center;">
+            <?= Html::img(Yii::getAlias('@web/' . $model->image), ['width' => '450']) ?>
+        </div>
+    <?php endif; ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

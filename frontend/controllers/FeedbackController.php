@@ -43,6 +43,7 @@ class FeedbackController extends Controller
             $model->phone_number = $post['phone'];
             $model->city = $post['city'];
             $model->province = $post['state'];
+            $model->is_read = 0;
 
             if ($model->save()) {
                 Yii::$app->session->setFlash('success', 'Your message was sent successfully. Thanks.');

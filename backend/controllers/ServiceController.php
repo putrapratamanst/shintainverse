@@ -78,7 +78,7 @@ class ServiceController extends Controller
                 // $dataCoverage = explode(',', $coverage);  // Array: ['value1', 'value2', 'value3']
 
                 // Memecah string menjadi array berdasarkan koma
-        
+
 
                 $model->slug = \yii\helpers\Inflector::slug($model->title);
                 $model->created_at = date('Y-m-d H:i:s');
@@ -95,17 +95,21 @@ class ServiceController extends Controller
                     $model->image->saveAs($fullOriginalPath);
                     $model->image = $fullOriginalPath;
 
-
                     $model->save(false);
 
                     // Buat thumbnail
-                    $width = 300;
-                    $height = 300;
+                    $width = 350;
+                    $height = 184;
                     $thumbFileName = $originalName . "_{$width}x{$height}." . $extension;
                     $fullThumbPath = $uploadPath . $thumbFileName;
 
-                    Image::thumbnail($fullOriginalPath, $width, $height)
+                    $thumbnail  = Image::thumbnail($fullOriginalPath, $width, $height)
                         ->save($fullThumbPath, ['quality' => 85]);
+
+
+                    if ($thumbnail === null) {
+                        throw new \Exception("Thumbnail generation failed.");
+                    }
                 }
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -139,9 +143,30 @@ class ServiceController extends Controller
                     unlink(Yii::getAlias('@webroot/service/' . $oldImage));
                 }
 
-                $filename = 'uploads/service/' . uniqid() . '.' . $model->image->extension;
-                $model->image->saveAs(Yii::getAlias('@webroot/' . $filename));
-                $model->image = $filename;
+                $uploadPath = 'uploads/service/';
+                $originalName = uniqid(); // nama acak agar unik
+                $extension = $model->image->extension;
+                $originalFileName = $originalName . '.' . $extension;
+                $fullOriginalPath = $uploadPath . $originalFileName;
+
+                $model->image->saveAs($fullOriginalPath);
+                $model->image = $fullOriginalPath;
+
+                $model->save(false);
+
+                // Buat thumbnail
+                $width = 350;
+                $height = 184;
+                $thumbFileName = $originalName . "_{$width}x{$height}." . $extension;
+                $fullThumbPath = $uploadPath . $thumbFileName;
+
+                $thumbnail  = Image::thumbnail($fullOriginalPath, $width, $height)
+                    ->save($fullThumbPath, ['quality' => 85]);
+
+
+                if ($thumbnail === null) {
+                    throw new \Exception("Thumbnail generation failed.");
+                }
             } else {
                 $model->image = $oldImage;
             }

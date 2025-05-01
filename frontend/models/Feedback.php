@@ -63,4 +63,15 @@ class Feedback extends \yii\db\ActiveRecord
         ];
     }
 
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'createdAtAttribute' => 'created_at', // Kolom untuk created_at
+                'updatedAtAttribute' => 'updated_at', // Kolom untuk updated_at
+                'value' => new \yii\db\Expression('NOW()'), // Format waktu default
+            ],
+        ];
+    }
 }

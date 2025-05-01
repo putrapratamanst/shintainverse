@@ -18,7 +18,7 @@
                                                 <div class="wpb_single_image wpb_content_element vc_align_left  vc_custom_1453120292205">
 
                                                     <figure class="wpb_wrapper vc_figure">
-                                                        <div class="vc_single_image-wrapper   vc_box_border_grey"><img class="vc_single_image-img " src="<?= $model->image ?>" width="560" height="364" alt="<?= $model->title ?>" title="<?= $model->title ?>"></div>
+                                                        <div class="vc_single_image-wrapper   vc_box_border_grey"><img class="vc_single_image-img " src="<?= Yii::getAlias('@backend/' . $model->image) ?>" width="560" height="364" alt="<?= $model->title ?>" title="<?= $model->title ?>"></div>
                                                     </figure>
                                                 </div>
                                             </div>

@@ -286,12 +286,22 @@ $this->title = 'Home - Shinta Inserve';
                                 </div>
 
                                 <div class="stm_services style_1 cols_3">
-                                    <?php foreach ($services as $service) { ?>
+                                    <?php foreach ($services as $service) {
+                                        $imagePath = $service->image; // uploads/service/68131d64a5372.jpg
+                                        $info = pathinfo($imagePath);
+
+                                        $filename = $info['filename']; // 68131d64a5372
+                                        $extension = $info['extension']; // jpg
+                                        $suffix = '_350x184';
+
+                                        $thumbFilename = $filename . $suffix . '.' . $extension; // 68131d64a5372_350x184.jpg
+                                        $thumbPath = 'uploads/service/' . $thumbFilename;
+                                    ?>
                                         <div class="item">
                                             <div class="item_wr">
                                                 <div class="item_thumbnail">
                                                     <a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>">
-                                                        <img class="" src="<?= $service->image ?>" width="350" height="184" alt="<?= $service->title ?>" title="<?= $service->title ?>"> </a>
+                                                        <img class="" src="<?= Yii::getAlias('@backend/' . $thumbPath) ?>" width="350" height="184" alt="<?= $service->title ?>" title="<?= $service->title ?>"> </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5><a href="<?= Url::to(['service/view', 'slug' => $service->slug]) ?>"><?= $service->title ?></a></h5>
@@ -403,105 +413,13 @@ $this->title = 'Home - Shinta Inserve';
                                             <div class="vc_carousel-inner">
                                                 <div class="vc_carousel-slideline" style="width: 16500px;">
                                                     <div class="vc_carousel-slideline-inner" style="left: -6.25%;">
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/ACA.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/ACA.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/ACA-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
+                                                        <?php foreach ($partners as  $partner) { ?>
+                                                            <div class="vc_item" style="width: 1.25%; height: 106.125px;">
+                                                                <div class="vc_inner">
+                                                                    <img width="358" height="204" src="<?= Yii::getAlias('@backend/' . $partner->image) ?>" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="<?= Yii::getAlias('@backend/' . $partner->image) ?> 358w, <?= Yii::getAlias('@backend/' . $partner->image) ?> 300w" sizes="(max-width: 358px) 100vw, 358px">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/ADIRA.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/ADIRA.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/ADIRA-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/ag.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/ag.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/ag-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/asei.jpg" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/asei.jpg 358w, https://shintainserve.com/wp-content/uploads/2019/01/asei-300x171.jpg 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/ASW.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/ASW.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/ASW-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item vc_active" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/BESS.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/BESS.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/BESS-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/BINTANG.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/BINTANG.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/BINTANG-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/BUANA.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/BUANA.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/BUANA-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/CHINA.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/CHINA.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/CHINA-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/CHUBB.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/CHUBB.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/CHUBB-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/DAYIN.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/DAYIN.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/DAYIN-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/KSK.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/KSK.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/KSK-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/MAG.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/MAG.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/MAG-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/mpm.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/mpm.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/mpm-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/MSIG.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/MSIG.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/MSIG-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/PANDI.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/PANDI.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/PANDI-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/QBE2.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/QBE2.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/QBE2-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/tugu.png" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/tugu.png 358w, https://shintainserve.com/wp-content/uploads/2019/01/tugu-300x171.png 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
-                                                        <div class="vc_item" style="width: 1.25%; height: 106.125px;">
-                                                            <div class="vc_inner">
-                                                                <img width="358" height="204" src="https://shintainserve.com/wp-content/uploads/2019/01/zurich.jpg" class="attachment-large" alt="" decoding="async" loading="lazy" srcset="https://shintainserve.com/wp-content/uploads/2019/01/zurich.jpg 358w, https://shintainserve.com/wp-content/uploads/2019/01/zurich-300x171.jpg 300w" sizes="(max-width: 358px) 100vw, 358px">
-                                                            </div>
-                                                        </div>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
