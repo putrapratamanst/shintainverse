@@ -102,7 +102,6 @@ AppAsset::register($this);
         <script type="text/javascript" src="https://shintainserve.com/wp-content/themes/consulting/assets/js/custom.js?ver=4.1.3" id="consulting-custom-js"></script>
         <script type="text/javascript" src="https://shintainserve.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.4.7" id="wpb_composer_front_js-js"></script>
         <script type="text/javascript" src="https://shintainserve.com/wp-content/themes/consulting/assets/js/countUp.min.js?ver=4.1.3" id="countUp-js"></script>
-        <script type="text/javascript" src="https://shintainserve.com/wp-content/plugins/js_composer/assets/lib/vc_carousel/js/transition.min.js?ver=5.4.7" id="vc_transition_bootstrap_js-js"></script>
         <script type="text/javascript" src="https://shintainserve.com/wp-content/plugins/js_composer/assets/lib/vc_carousel/js/vc_carousel.min.js?ver=5.4.7" id="vc_carousel_js-js"></script>
 
         <?php $this->endBody() ?>

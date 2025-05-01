@@ -75,6 +75,7 @@ class BannerController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post())) {
+                $model->is_active = 1;
                 $model->image = UploadedFile::getInstance($model, 'image');
                 if ($model->image) {
                     $filename = 'uploads/banner/' . uniqid() . '.' . $model->image->extension;
