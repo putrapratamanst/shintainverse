@@ -51,7 +51,7 @@ return [
         ],
     ],
     'aliases' => [
-        '@backend' => 'http://localhost:8002',
+        '@backend' => 'http://shintainverse.42web.io/admin',
     ],
     'params' => $params,
 ];
