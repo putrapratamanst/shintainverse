@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use frontend\models\CompanyOverview;
 use frontend\models\CompanyOverviewSearch;
+use frontend\models\Testimonies;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -38,9 +39,11 @@ class CompanyOverviewController extends Controller
      */
     public function actionIndex()
     {
+        $testimonies = Testimonies::find()->all();
         $model = $this->findModelBySlug('company-overview');
         return $this->render('view', [
             'model' => $model,
+            'testimonies' => $testimonies,
         ]);
     }
 
@@ -61,9 +64,14 @@ class CompanyOverviewController extends Controller
 
     public function actionView($slug)
     {
+        if ($slug == "our-partners") {
+            return $this->redirect(['partner/index']);
+        }
+        $testimonies = Testimonies::find()->all();
         $model = $this->findModelBySlug($slug);
         return $this->render('view', [
             'model' => $model,
+            'testimonies' => $testimonies,
         ]);
     }
 

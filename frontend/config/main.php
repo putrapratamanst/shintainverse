@@ -40,8 +40,15 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'company-overview/index' => 'company-overview/index',
+                'company-overview/<slug>' => 'company-overview/view',
+                'staff/index' => 'staff/index',
+                'staff/<slug>' => 'staff/view',
             ],
         ],
+    ],
+    'aliases'=>[
+        '@backend' => 'http://localhost:8002',
     ],
     'params' => $params,
 ];

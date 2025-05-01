@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use frontend\models\Staff;
 use frontend\models\StaffSearch;
+use frontend\models\Testimonies;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -39,9 +40,11 @@ class StaffController extends Controller
     public function actionIndex()
     {
         $staffs = Staff::find()->where(['is_active' => 1])->all();
+        $testimonies = Testimonies::find()->all();
 
         return $this->render('index', [
             'staffs' => $staffs,
+            'testimonies' => $testimonies,
         ]);
     }
     // public function actionIndex()
@@ -69,8 +72,10 @@ class StaffController extends Controller
     }
     public function actionView($slug)
     {
+        $testimonies = Testimonies::find()->all();
         return $this->render('view', [
             'model' => $this->findModelBySlug($slug),
+            'testimonies' => $testimonies,
         ]);
     }
 

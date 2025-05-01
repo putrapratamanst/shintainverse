@@ -4,7 +4,7 @@ use yii\helpers\Url;
 
 $this->title = 'Home - Shinta Inserve';
 ?>
-<?= $this->render('_banner') ?>
+<?= $this->render('_banner',['banners'=>$banners]) ?>
 <div class="container">
 
     <div class="content-area">

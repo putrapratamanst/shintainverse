@@ -6,29 +6,53 @@ use yii\helpers\Url;
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-header">MENUS</li>
+        <li class="nav-header">MENU</li>
+        <li class="nav-item">
+            <a href="<?= Url::to(['banner/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-image"></i>
+                <p>
+                    Banners
+                </p>
+            </a>
+        </li>
         <li class="nav-item">
             <a href="<?= Url::to(['company-overview/index']) ?>" class="nav-link">
-                <i class="nav-icon far fa-calendar-alt"></i>
+                <i class="nav-icon far fa-bookmark"></i>
                 <p>
                     Company Overview
-                    <span class="badge badge-info right">2</span>
+                    <!-- <span class="badge badge-info right">2</span> -->
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= Url::to(['staff/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-user"></i>
+                <p>
+                    Staffs
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= Url::to(['partner/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-handshake"></i>
+                <p>
+                    Partners
                 </p>
             </a>
         </li>
         <li class="nav-item">
             <a href="<?= Url::to(['service/index']) ?>" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+                <i class="nav-icon far fa-copy"></i>
                 <p>
                     Services
                 </p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="<?= Url::to(['staff/index']) ?>" class="nav-link">
-                <i class="nav-icon far fa-image"></i>
+            <a href="<?= Url::to(['testimonies/index']) ?>" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
                 <p>
-                    Staffs
+                    Testimonies
                 </p>
             </a>
         </li>

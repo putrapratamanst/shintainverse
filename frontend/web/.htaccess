@@ -1,0 +1,29 @@
+# RewriteEngine On
+
+# # Redirect all requests to the frontend/web directory
+# RewriteCond %{REQUEST_URI} !^/frontend/web
+# RewriteRule ^(.*)$ frontend/web/$1 [L]
+
+# # Prevent access to hidden files and directories (starting with dot)
+# RewriteRule "(^|/)\." - [F]
+
+# # Deny access to the vendor directory
+# RewriteRule ^frontend/web/vendor/ - [F,L,NC]
+
+# # Deny access to the composer.json files
+# RewriteRule ^frontend/web/composer\.(json|lock) - [F,L,NC]
+
+# # Allow access to assets directory
+# RewriteRule ^frontend/web/assets/ - [L]
+
+RewriteEngine on
+
+# If a directory or a file exists, use it directly
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Otherwise forward it to index.php
+
+RewriteRule . index.php

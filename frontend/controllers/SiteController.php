@@ -11,6 +11,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use frontend\models\Banner;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -23,11 +24,13 @@ use frontend\models\Service;
 class SiteController extends Controller
 {
     protected $product;
+    protected $banner;
 
     public function __construct($id, $module, $config = [])
     {
         parent::__construct($id, $module, $config);
         $this->product = new Service();
+        $this->banner = new Banner();
     }
 
     /**
@@ -84,10 +87,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $banners = $this->banner->getActiveBanners();
         $services = $this->product->getActiveServicess(6);
         $this->view->params['services'] = $services;
         return $this->render('index', [
             'services' => $services,
+            'banners' => $banners,
         ]);
     }
 

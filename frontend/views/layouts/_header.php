@@ -16,7 +16,7 @@ use yii\helpers\Url;
             <div class="top_nav media-body media-middle affix">
                 <div class="top_nav_wrapper clearfix">
                     <ul id="menu-main-menu" class="main_menu_nav">
-                        <li id="menu-item-1290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1024 current_page_item menu-item-1290"><a href="<?= Url::to(['site/index']) ?>" aria-current="page">Home</a></li>
+                        <li id="menu-item-1290" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1024 current_page_item menu-item-1290"><a href="<?= Url::to(['/']) ?>" aria-current="page">Home</a></li>
                         <li id="menu-item-1295" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1295"><a href="<?= Url::to(['company-overview/index']) ?>">About Us</a>
                             <ul class="sub-menu">
                                 <li id="menu-item-1298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1298 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'company-history']) ?>">company history</a></li>
@@ -28,7 +28,7 @@ use yii\helpers\Url;
                             <ul class="sub-menu">
                                 <li id="menu-item-1296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1296 stm_col_width_default stm_mega_cols_inside_6"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-approach']) ?>">our approach</a></li>
                                 <li id="menu-item-1548" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1548 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'benefits-for-you']) ?>">benefit for you</a></li>
-                                <li id="menu-item-1301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1301 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/our-partners/">partners</a></li>
+                                <li id="menu-item-1301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1301 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-partners']) ?>">partners</a></li>
                             </ul>
                         </li>
                         <li id="menu-item-1310" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1310"><a href="<?= Url::to(['service/index']) ?>">Products</a></li>
@@ -65,7 +65,7 @@ use yii\helpers\Url;
                         <ul class="sub-menu">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1296 stm_col_width_default stm_mega_cols_inside_6"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-approach']) ?>">our approach</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1548 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'benefits-for-you']) ?>">benefit for you</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1301 stm_col_width_default stm_mega_cols_inside_default"><a href="https://shintainserve.com/company-overview/our-partners/">partners</a></li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1301 stm_col_width_default stm_mega_cols_inside_default"><a href="<?= Url::to(['company-overview/view', 'slug' => 'our-partners']) ?>">partners</a></li>
                         </ul>
                     </li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1310"><a href="https://shintainserve.com/products/">Products</a></li>
