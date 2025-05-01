@@ -35,9 +35,9 @@ class Question extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['updated_at'], 'default', 'value' => 0],
+            [['created_at', 'updated_at'], 'default', 'value' => null],
             [['first_name', 'last_name', 'email', 'phone_number', 'comment'], 'required'],
-            [['is_read', 'created_at', 'updated_at'], 'integer'],
+            [['is_read', ], 'integer'],
             [['first_name', 'last_name', 'email', 'phone_number', 'comment'], 'string', 'max' => 255],
         ];
     }

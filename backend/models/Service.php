@@ -42,7 +42,7 @@ class Service extends \yii\db\ActiveRecord
             [['is_active'], 'default', 'value' => 1],
             [['is_deleted'], 'default', 'value' => 0],
             [['title', 'slug', 'description'], 'required'],
-            [['description', 'meta_description', 'meta_keywords'], 'string'],
+            [['description', 'meta_description', 'meta_keywords','coverage','summary','types'], 'string'],
             [['is_active', 'is_deleted'], 'integer'],
             [['created_at'], 'safe'],
             [['title', 'slug', 'meta_title', 'meta_image'], 'string', 'max' => 255],

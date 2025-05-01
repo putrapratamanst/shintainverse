@@ -15,6 +15,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    
+    <?= $form->field($model, 'summary')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'coverage')->textInput(['placeholder' => 'Enter values separated by comma']);?>
 
